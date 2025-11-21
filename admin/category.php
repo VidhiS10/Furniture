@@ -19,6 +19,7 @@ include('include.php');
 	<thead>
 			
 		<tr>
+      <th>Sr. No.</th>
 			<th>Category ID</th>
 			<th>Category Name</th>
 			<th>Cat Pic1</th>
@@ -37,12 +38,17 @@ $con = mysqli_connect("localhost", "root", "", "furniture");
 $query="SELECT * FROM tbl_category order by cat_id";
 
 $res=mysqli_query($con,$query);
+$page = isset($_GET['page']) ? $_GET['page'] : 1; // Current page number
+$limit = 5; // Number of records per page
+$start = ($page - 1) * $limit; // Starting row number for query
 
 $count=mysqli_num_rows($res);
 
 if ($count>0){
+$serialNumber = $start + 1; // Initialize serial number counter
 	while($row=mysqli_fetch_assoc($res)){
 		echo"<tr>";
+    echo "<td>" . $serialNumber++ . "</td>"; // Display serial number
 	echo "<td>".$row['cat_id']."</td>";
 	echo "<td>".$row['cat_name']."</td>";
     echo "<td> <img src='" . $row['cat_pic1'] . "' class='img-circle' height='100' width='100'></td>";

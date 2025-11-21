@@ -14,7 +14,8 @@ include('include.php');
       <table class="table table-grey text-black">
         <thead>
           <tr>
-            <th>Product ID</th>
+            <!-- <th>Product ID</th> -->
+            <th>Sr. No.</th>
             <th>Cat ID</th>
             <th>Product Name</th>
             <th>Product Price</th>
@@ -35,7 +36,10 @@ include('include.php');
               $query = "SELECT * FROM tbl_sub_category";
               $result = mysqli_query($con, $query);
               $number_of_results = mysqli_num_rows($result);
+              $page = isset($_GET['page']) ? $_GET['page'] : 1; // Current page number
               $number_of_pages = ceil($number_of_results / $results_per_page);
+              $limit = 5; // Number of records per page
+              $start = ($page - 1) * $limit; // Starting row number for query
 
               if (!isset($_GET['page'])) {
                 $page = 1;
@@ -48,11 +52,13 @@ include('include.php');
               // Query with pagination
               $query = "SELECT * FROM tbl_sub_category LIMIT $this_page_first_result, $results_per_page";
               $res = mysqli_query($con, $query);
-
-              if (mysqli_num_rows($res) > 0){
+              $count = mysqli_num_rows($res);
+              if ($count > 0){
+                $serialNumber = $start + 1; // Initialize serial number counter
                 while($row=mysqli_fetch_assoc($res)){
                   echo"<tr>";
-                  echo "<td>".$row['sub_cat_id']."</td>";
+                  //echo "<td>".$row['sub_cat_id']."</td>";
+                  echo "<td>" . $serialNumber++ . "</td>"; // Display serial number
                   echo "<td>".$row['cat_id']."</td>";
                   echo "<td>".$row['sub_cat_name']."</td>";
                   echo "<td>".$row['sub_cat_price']."</td>";

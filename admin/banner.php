@@ -19,6 +19,7 @@ include('include.php');
 	<thead>
 			
 		<tr>
+      <th>Sr. No.</th>
 			<th>Banner ID</th>
 			<th>Banner Title</th>
 			<th>Banner Image</th>
@@ -40,10 +41,15 @@ $query="SELECT * FROM tbl_banner order by ban_id";
 $res=mysqli_query($con,$query);
 
 $count=mysqli_num_rows($res);
+$page = isset($_GET['page']) ? $_GET['page'] : 1; // Current page number
+$limit = 5; // Number of records per page
+$start = ($page - 1) * $limit; // Starting row number for query
 
 if ($count>0){
+  $serialNumber = $start + 1; // Initialize serial number counter
 	while($row=mysqli_fetch_assoc($res)){
 		echo"<tr>";
+    echo "<td>" . $serialNumber++ . "</td>"; // Display serial number
 	echo "<td>".$row['ban_id']."</td>";
 	echo "<td>".$row['ban_title']."</td>";
     echo "<td> <img src='" . $row['ban_img'] . "' class='img-circle' height='100' width='100'></td>";
