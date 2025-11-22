@@ -18,7 +18,8 @@ include('include.php');
 	<thead>
 			
 		<tr>
-			<th>Admin ID</th>
+			<!-- <th>Admin ID</th> -->
+			 <th>Sr. no.</th>
 			<th>Admin Name</th>
 			<th>Admin Email</th>
 			<th>Admin Mobile</th>
@@ -38,11 +39,16 @@ $query="SELECT * FROM tbl_admin order by admin_id";
 $res=mysqli_query($con,$query);
 
 $count=mysqli_num_rows($res);
+$page = isset($_GET['page']) ? $_GET['page'] : 1; // Current page number
+$limit = 5; // Number of records per page
+$start = ($page - 1) * $limit; // Starting row number for query
 
 if ($count>0){
+	$serialNumber = $start + 1; // Initialize serial number counter
 	while($row=mysqli_fetch_assoc($res)){
 		echo"<tr>";
-	echo "<td>".$row['admin_id']."</td>";
+	//echo "<td>".$row['admin_id']."</td>";
+	echo "<td>" . $serialNumber++ . "</td>"; // Display serial number
 	echo "<td>".$row['admin_name']."</td>";
 	echo "<td>".$row['admin_email']."</td>";
 	echo "<td>".$row['admin_mobile']."</td>";

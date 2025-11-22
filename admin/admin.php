@@ -31,25 +31,6 @@ session_start();
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
-    <style>
-    #logo {
-    background-color: #fff; /* White background color */
-    color: #007bff; /* Blue text color */
-    padding: 10px;
-    font-size: 24px;
-    font-weight: bold;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    border-radius: 5px;
-    margin-top: 15px;
-    display: inline-block;
-    width: 200px; /* Set the width */
-    height: 50px; /* Set the height */
-    }
-    </style>
-
-
-
 </head>
 
 <body id="page-top">
@@ -67,7 +48,9 @@ session_start();
                     <!-- <i class="fas fa-laugh-wink"></i> -->
                 </div>
                 <!-- Replace the text-based logo with your transparent logo image -->
-                <div id="logo">Furnizone</div>
+                <div id="divlogo">
+                    <img src="./images/5.jpg" alt="Furnizone Logo" width="98%";>
+                </div>
                 <!-- <img src="./images/logo3.png" alt="Furnizone Logo" width="300px" height="60px"> -->
             </a>
 
