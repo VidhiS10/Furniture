@@ -31,7 +31,7 @@ if(!isset($_SESSION['admin_id'])){
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
 
-    <style>
+    <!-- <style>
     #logo {
     background-color: #fff; /* White background color */
     color: #007bff; /* Blue text color */
@@ -46,8 +46,7 @@ if(!isset($_SESSION['admin_id'])){
     width: 200px; /* Set the width */
     height: 50px; /* Set the height */
     }
-    
-    </style>
+    </style> -->
     
 
 </head>
@@ -69,7 +68,9 @@ if(!isset($_SESSION['admin_id'])){
                     <!-- <i class="fas fa-laugh-wink"></i> -->
                 </div>
                 <!-- Replace the text-based logo with your transparent logo image -->
-                <div id="logo">Furnizone</div>
+                <div id="divlogo">
+                    <img src="./images/5.jpg" alt="Furnizone Logo" width="98%";>
+                </div>
                 <!-- <img src="./images/logo3.png" alt="Furnizone Logo" width="300px" height="60px"> -->
             </a>
 
