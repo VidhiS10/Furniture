@@ -5,7 +5,7 @@ $id=$_POST['id'];
 $quantity=$_POST['quantity'];
 $amount=$_POST['amount'];
 
-$query="UPDATE tbl_order SET quantity=$quantity,total_amount=$quantity*$amount where id=$id";
+$query="UPDATE tbl_order SET quantity=$quantity,total_amount=$amount where id=$id";
 $res=mysqli_query($con,$query);
 if($res){
 
