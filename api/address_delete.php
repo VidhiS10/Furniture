@@ -1,9 +1,9 @@
 <?php
 $conn = mysqli_connect("localhost", "root", "", "furniture");
 
-$address_id = $_POST['address_id'];
+$id = $_POST['id'];
 
-$query = "DELETE FROM tbl_addresses WHERE address_id = '$address_id'";
+$query = "DELETE FROM tbl_addresses WHERE id = '$id'";
 $res = mysqli_query($conn, $query);
 
 if ($res) {

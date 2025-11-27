@@ -1,7 +1,7 @@
 <?php
 $conn = mysqli_connect("localhost", "root", "", "furniture");
 
-$address_id  = $_POST['address_id'];
+$id  = $_POST['id'];
 $full_name   = $_POST['full_name'];
 $phone       = $_POST['phone'];
 $house_no    = $_POST['house_no'];
@@ -15,7 +15,7 @@ $is_default  = $_POST['is_default'];
 
 // If default is selected → remove default from others
 if ($is_default == 1) {
-    $user = mysqli_fetch_assoc(mysqli_query($conn, "SELECT user_id FROM tbl_addresses WHERE address_id='$address_id'"));
+    $user = mysqli_fetch_assoc(mysqli_query($conn, "SELECT user_id FROM tbl_addresses WHERE id='$id'"));
     $user_id = $user['user_id'];
 
     mysqli_query($conn, "UPDATE tbl_addresses SET is_default = 0 WHERE user_id = '$user_id'");
@@ -32,7 +32,7 @@ $query = "UPDATE tbl_addresses SET
     pincode='$pincode',
     address_type='$address_type',
     is_default='$is_default'
-    WHERE address_id='$address_id'";
+    WHERE id='$id'";
 
 $res = mysqli_query($conn, $query);
 
